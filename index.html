@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinero Tech Support</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    .intro {
+      background: #000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 5rem;
+      animation: fadeOut 3s forwards;
+      animation-delay: 2.5s;
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .main {
+      display: none;
+      padding: 2rem;
+    }
+    .show-main {
+      display: block;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .service {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .service:hover {
+      transform: translateY(-5px);
+    }
+    .service a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro" id="intro">D</div>
+  <div class="main" id="main">
+    <h1>Welcome to Dinero Tech Support</h1>
+    <p>Click any service below to chat directly with us on WhatsApp.</p>
+    <div class="services">
+      <!-- Services will be injected by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    const services = [
+      "AI Chatbot Integration", "Remote PC Repair", "Smart Home Setup", "Website Debugging",
+      "Network Configuration", "Software Installation", "Mobile Optimization",
+      "AI Virtual Assistant Setup", "Cloud Backup Solutions", "Tech Consultation",
+      "IoT Device Support", "Printer Troubleshooting", "PC Custom Build Help",
+      "VR Setup Support", "AI Automation Scripts", "Server Maintenance",
+      "Security Camera Setup", "Smartwatch Syncing", "App Performance Tuning",
+      "Data Recovery Services", "Voice Assistant Integration", "Router Configuration",
+      "AI Email Sorting", "Remote Education Setup", "AI Image Enhancements",
+      "Laptop Speed Optimization", "Data Encryption Advice", "Remote Device Cleanup",
+      "Streaming Setup", "Zoom/Teams Support", "Remote Office Setup",
+      "Gadget Setup Guide", "Firmware Updates", "Mobile App Testing",
+      "AI Resume Generator", "Online Privacy Consulting", "Bug Fixing",
+      "AI Content Generation", "Database Fix", "Tech Skill Training"
+    ];
+
+    const servicesContainer = document.querySelector(".services");
+
+    services.forEach(service => {
+      const div = document.createElement("div");
+      div.className = "service";
+      div.innerHTML = `<p>${service}</p><a href="https://wa.me/2349021335159?text=I'm%20interested%20in%20${encodeURIComponent(service)}">Chat on WhatsApp</a>`;
+      servicesContainer.appendChild(div);
+    });
+
+    // Show main content after animation
+    setTimeout(() => {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main").classList.add("show-main");
+    }, 3000);
+  </script>
+</body>
+</html>
